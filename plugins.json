@@ -63,7 +63,7 @@
     "support_threads": 0,
     "support_threads_resolved": 0,
     "active_installs": 0,
-    "downloaded": 12,
+    "downloaded": 23,
     "last_updated": "2025-01-17 8:38am GMT",
     "added": "2025-01-17",
     "homepage": "",
@@ -6720,7 +6720,7 @@
     "support_threads": 0,
     "support_threads_resolved": 0,
     "active_installs": 0,
-    "downloaded": 11,
+    "downloaded": 22,
     "last_updated": "2025-01-17 5:50pm GMT",
     "added": "2025-01-17",
     "homepage": "https://blog.meloniq.net/gp-translate-with-openai",
@@ -6736,7 +6736,8 @@
     },
     "donate_link": "",
     "icons": {
-      "default": "https://s.w.org/plugins/geopattern-icon/gp-translate-with-openai.svg"
+      "1x": "https://ps.w.org/gp-translate-with-openai/assets/icon-128x128.png?rev=3225096",
+      "2x": "https://ps.w.org/gp-translate-with-openai/assets/icon-256x256.png?rev=3225096"
     }
   },
   {
