@@ -182,12 +182,8 @@
                 const data = await response.json();
                 pluginsData = data;
                 
-                // Display archive info
-                const infoDiv = document.querySelector('.archive-info');
-                infoDiv.textContent = `Total plugins available: ${data.info.results} across ${data.info.pages} pages`;
-                
-                renderPlugins(data.plugins);
-                updatePluginCount(data.plugins.length);
+                renderPlugins(data);
+                updatePluginCount(data.length);
             } catch (error) {
                 console.error('Error loading plugins:', error);
             }
