@@ -283,33 +283,34 @@
 
         function renderPlugins(plugins) {
             const grid = document.getElementById('pluginGrid');
-            grid.innerHTML = plugins.map(plugin => {
-                const downloadUrl = `https:
-                const iconUrl = plugin.icons?.['1x'] || plugin.icons?.['svg'] || 'data:image/svg+xml,<svg xmlns="http:
-                const tags = plugin.tags ? Object.values(plugin.tags) : [];
-                const authorName = plugin.author.replace(/<\/?[^>]+(>|$)/g, "");
+            grid.innerHTML = plugins.map(function(plugin) {
+                var downloadUrl = 'https://files.lagoon.io/plugin/' + plugin.slug + '.' + plugin.version + '.zip';
+                var iconUrl = (plugin.icons && plugin.icons['1x']) || (plugin.icons && plugin.icons['svg']) || 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"/>';
+                var tags = plugin.tags ? Object.values(plugin.tags) : [];
+                var authorName = plugin.author.replace(/<\/?[^>]+(>|$)/g, "");
+                var rating = (plugin.rating/20).toFixed(1);
                 
-                return `
-                    <div class="plugin-card">
-                        <div class="plugin-header">
-                            <img src="${iconUrl}" alt="${plugin.name} icon" class="plugin-icon">
-                            <div>
-                                <div class="plugin-title">${plugin.name}</div>
-                                <div class="plugin-meta">Version ${plugin.version} by ${authorName}</div>
-                            </div>
-                        </div>
-                        <div class="stats">
-                            <span>⭐ ${(plugin.rating/20).toFixed(1)}/5</span>
-                            <span>↓ ${formatNumber(plugin.downloaded)}</span>
-                            <span>🟢 ${formatNumber(plugin.active_installs)}+ active</span>
-                        </div>
-                        <div class="tag-list">
-                            ${tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
-                        </div>
-                        <div class="plugin-description">${plugin.short_description}</div>
-                        <a href="${downloadUrl}" class="download-button" download>Download Plugin</a>
-                    </div>
-                `;
+                var tagHtml = tags.map(function(tag) {
+                    return '<span class="tag">' + tag + '</span>';
+                }).join('');
+                
+                return '<div class="plugin-card">' +
+                    '<div class="plugin-header">' +
+                        '<img src="' + iconUrl + '" alt="' + plugin.name + ' icon" class="plugin-icon">' +
+                        '<div>' +
+                            '<div class="plugin-title">' + plugin.name + '</div>' +
+                            '<div class="plugin-meta">Version ' + plugin.version + ' by ' + authorName + '</div>' +
+                        '</div>' +
+                    '</div>' +
+                    '<div class="stats">' +
+                        '<span>⭐ ' + rating + '/5</span>' +
+                        '<span>↓ ' + formatNumber(plugin.downloaded) + '</span>' +
+                        '<span>🟢 ' + formatNumber(plugin.active_installs) + '+ active</span>' +
+                    '</div>' +
+                    '<div class="tag-list">' + tagHtml + '</div>' +
+                    '<div class="plugin-description">' + plugin.short_description + '</div>' +
+                    '<a href="' + downloadUrl + '" class="download-button" download>Download Plugin</a>' +
+                '</div>';
             }).join('');
         }
 
