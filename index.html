@@ -297,16 +297,11 @@
                 
                 return '<div class="plugin-card">' +
                     '<div class="plugin-header">' +
-                        
+                         '<img src="' + iconUrl + '" alt="' + plugin.name + ' icon" class="plugin-icon">' +
                         '<div>' +
                             '<div class="plugin-title"><a href="' + plugin.homepage + '">' + plugin.name + '</a></div>' +
                             '<div class="plugin-meta">Version ' + plugin.version + ' by ' + authorName + '</div>' +
                         '</div>' +
-                    '</div>' +
-                    '<div class="stats">' +
-                        '<span>' + rating + '/5</span>' +
-                        '<span>' + formatNumber(plugin.downloaded) + '</span>' +
-                        '<span>' + formatNumber(plugin.active_installs) + '+ active</span>' +
                     '</div>' +
                     '<div class="tag-list">' + tagHtml + '</div>' +
                     '<div class="plugin-description">' + plugin.short_description + '</div>' +
