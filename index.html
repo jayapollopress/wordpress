@@ -162,7 +162,7 @@
 </head>
 <body>
     <header>
-        <h1>WordPress Plugin Archive</h1>
+        <h1>Lagoon.io - WordPress Plugin Archive</h1>
         <div class="archive-info"></div>
     </header>
 
@@ -289,6 +289,7 @@
                 var tags = plugin.tags ? Object.values(plugin.tags) : [];
                 var authorName = plugin.author.replace(/<\/?[^>]+(>|$)/g, "");
                 var rating = (plugin.rating/20).toFixed(1);
+                //var homelink = plugin.homepage;
                 
                 var tagHtml = tags.map(function(tag) {
                     return '<span class="tag">' + tag + '</span>';
@@ -296,16 +297,16 @@
                 
                 return '<div class="plugin-card">' +
                     '<div class="plugin-header">' +
-                        '<img src="' + iconUrl + '" alt="' + plugin.name + ' icon" class="plugin-icon">' +
+                        
                         '<div>' +
-                            '<div class="plugin-title">' + plugin.name + '</div>' +
+                            '<div class="plugin-title"><a href="' + plugin.homepage + '">' + plugin.name + '</a></div>' +
                             '<div class="plugin-meta">Version ' + plugin.version + ' by ' + authorName + '</div>' +
                         '</div>' +
                     '</div>' +
                     '<div class="stats">' +
-                        '<span>⭐ ' + rating + '/5</span>' +
-                        '<span>↓ ' + formatNumber(plugin.downloaded) + '</span>' +
-                        '<span>🟢 ' + formatNumber(plugin.active_installs) + '+ active</span>' +
+                        '<span>' + rating + '/5</span>' +
+                        '<span>' + formatNumber(plugin.downloaded) + '</span>' +
+                        '<span>' + formatNumber(plugin.active_installs) + '+ active</span>' +
                     '</div>' +
                     '<div class="tag-list">' + tagHtml + '</div>' +
                     '<div class="plugin-description">' + plugin.short_description + '</div>' +
